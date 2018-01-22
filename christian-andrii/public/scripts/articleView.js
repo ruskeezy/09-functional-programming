@@ -4,6 +4,7 @@ var app = app || {};
 var articleView = {};
 
 (function(module){
+  
   let obj = {};
 
   obj.articleView.populateFilters = () => {
