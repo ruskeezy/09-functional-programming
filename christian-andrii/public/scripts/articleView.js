@@ -6,6 +6,7 @@ var app = app || {};
   
   var articleView = {};
   
+  
   articleView.populateFilters = () => {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
