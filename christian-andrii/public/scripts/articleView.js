@@ -1,12 +1,9 @@
 'use strict';
 var app = app || {};
 
-
 (function(module){
-  
   var articleView = {};
-  
-  
+
   articleView.populateFilters = () => {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
@@ -134,7 +131,7 @@ var app = app || {};
   };
 
   articleView.initAdminPage = () => {
-
+    let statTemplate = Handlebars.compile('#stats-template');
     // REVIEW: We use .forEach() here because we are relying on the side-effects of the callback function: appending to the DOM. The callback is not required to return anything.
     app.Article.numWordsByAuthor().forEach(stat => $('.author-stats').append(template(stat)));
 
@@ -143,7 +140,9 @@ var app = app || {};
     $('#blog-stats .words').text(app.Article.numWordsAll());
 
   };
-  module.articleView  = articleView;
+  module.articleView = articleView;
 })(app);
+
+
 
 
