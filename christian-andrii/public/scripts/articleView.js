@@ -1,12 +1,9 @@
 'use strict';
 var app = app || {};
 
-
 (function(module){
-  
   var articleView = {};
-  
-  
+
   articleView.populateFilters = () => {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
@@ -143,7 +140,9 @@ var app = app || {};
     $('#blog-stats .words').text(app.Article.numWordsAll());
 
   };
-  module.articleView  = articleView;
+  module.articleView = articleView;
 })(app);
+
+
 
 
