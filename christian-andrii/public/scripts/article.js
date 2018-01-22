@@ -37,11 +37,11 @@ var app = app || {};
   };
 
   Article.numWordsAll = () => {
-    return Article.all.map().reduce()
+    return Article.all.map(el => el.body.reduce((a,b) => a.length+b.length))
   };
 
   Article.allAuthors = () => {
-    return Article.all.map().reduce();
+    return Article.all.map((el,arr)=> arr.push(el.author)).sort().reduce( (cur, next, arr) => { if (cur !== next) {arr.push(cur) } }) 
   };
 
   Article.numWordsByAuthor = () => {
@@ -56,7 +56,7 @@ var app = app || {};
       .then(console.log)
     // REVIEW: Check out this clean syntax for just passing 'assumed' data into a named function! The reason we can do this has to do with the way Promise.prototype.then() works. It's a little outside the scope of 301 material, but feel free to research!
       .then(callback);
-      
+
   };
 
   Article.prototype.insertRecord = function(callback) {
