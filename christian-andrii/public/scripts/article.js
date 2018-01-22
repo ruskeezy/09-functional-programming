@@ -24,17 +24,14 @@ var app = app || {};
   obj.Article.loadAll = rawData => {
     rawData.sort((a,b) => (new Date(b.publishedOn)) - (new Date(a.publishedOn)))
 
-    /* OLD forEach():
-    rawData.forEach(articleObject => Article.all.push(new Article(articleObject)));
-    */
-
+    // /* OLD forEach():
+    Article.all = rawData.map(articleObject => (new Article(articleObject)));
   };
 
   obj.Article.fetchAll = callback => {
     $.get('/articles')
       .then(results => {
-        Article.loadAll(results);
-        callback();
+        Article.loadAll(results).then(callback);
       })
   };
 

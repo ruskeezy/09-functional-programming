@@ -1,12 +1,12 @@
 'use strict';
 var app = app || {};
 
-var articleView = {};
 
 (function(module){
   
   let obj = {};
-
+  var articleView = {};
+  
   obj.articleView.populateFilters = () => {
     $('article').each(function() {
       if (!$(this).hasClass('template')) {
